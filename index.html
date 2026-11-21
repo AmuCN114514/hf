@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>OFFICIAL WEBSITE</title>
+<style>
+:root{--bg:#f4f4f4;--sf:#fff;--tx:#222;--sub:#666;--ac:#888;--ac2:#555;--ln:#d6d6d6;--ph:#e4e4e4;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#1b1b1b;--sf:#242424;--tx:#eee;--sub:#aaa;--ac:#999;--ac2:#ccc;--ln:#3a3a3a;--ph:#333}}
+:root[data-theme="dark"]{--bg:#1b1b1b;--sf:#242424;--tx:#eee;--sub:#aaa;--ac:#999;--ac2:#ccc;--ln:#3a3a3a;--ph:#333}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:calc(64px + env(safe-area-inset-top,0px))}
+body{background:var(--bg);color:var(--tx);font:15px/1.8 "Hiragino Sans","Noto Sans JP","Microsoft YaHei",sans-serif}
+a{color:inherit;text-decoration:none}ul{list-style:none}
+.ph{background:var(--ph);border:1px dashed var(--ac);color:var(--sub);display:flex;align-items:center;justify-content:center;font:600 13px/1 monospace;letter-spacing:.1em;width:100%}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--sf);border-bottom:1px solid var(--ln);display:flex;align-items:center;justify-content:space-between;padding:0 20px;height:64px}
+header .logo{width:120px;height:32px;display:block}
+.logo{color:var(--tx)}
+.logo svg{width:100%;height:100%;display:block}
+nav>ul{display:flex;gap:22px;align-items:center}
+nav li{position:relative}
+nav a{font-size:13px;font-weight:600;display:block;padding:8px 0}
+nav a small{display:block;font-size:10px;color:var(--sub);font-weight:400}
+nav a:hover{color:var(--ac)}
+nav li ul{position:absolute;left:-12px;top:100%;background:var(--sf);border:1px solid var(--ln);min-width:200px;padding:8px 14px;display:none}
+nav li:hover>ul,nav li:focus-within>ul{display:block}
+nav li ul a{font-weight:400;padding:5px 0}
+#mb{display:none;background:none;border:1px solid var(--ln);color:var(--tx);width:40px;height:40px;font-size:18px;border-radius:6px}
+.hero{padding:56px 20px 40px;max-width:1100px;margin:auto;text-align:center}
+.hero .tag{color:var(--ac);letter-spacing:.3em;font-size:12px;font-weight:700}
+.hero h1{font-size:clamp(36px,8vw,76px);line-height:1.1;letter-spacing:.04em;margin:10px 0 14px;color:var(--ac2)}
+.hero p{color:var(--sub)}
+.since{display:inline-flex;gap:28px;margin:22px 0;font-weight:700;font-size:13px;letter-spacing:.1em}
+.row{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:20px}
+.row{grid-template-columns:repeat(2,1fr);max-width:640px;margin-inline:auto}.row .ph{aspect-ratio:3/4}.ph.im{background:none;border:0}.ph img{width:100%;height:100%;object-fit:contain;display:block}.card .ph.im{border-bottom:0}
+.acct{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:28px}
+.acct a{border:1px solid var(--ac);padding:8px 18px;font-size:12px;font-weight:700;letter-spacing:.08em;border-radius:999px}
+.acct a:hover{background:var(--ac);color:#fff}
+section{max-width:1100px;margin:auto;padding:64px 20px}
+h2{font-size:30px;letter-spacing:.1em;color:var(--ac2);margin-bottom:6px}
+.lead{color:var(--sub);font-size:13px;margin-bottom:28px}
+.cards{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+.card{background:var(--sf);border:1px solid var(--ln);display:block;transition:.2s}
+.card:hover{transform:translateY(-4px);border-color:var(--ac)}
+.card .ph{aspect-ratio:16/10;border:0;border-bottom:1px dashed var(--ac)}
+.card div{padding:14px 16px}
+.card b{color:var(--ac);font-size:22px}.card span{display:block;font-size:13px;font-weight:600}
+.about{background:var(--sf);border-block:1px solid var(--ln)}
+.about .in{max-width:1100px;margin:auto;padding:64px 20px;display:grid;grid-template-columns:1fr;gap:40px;text-align:center}
+.about .logo{width:200px;height:48px;margin:14px auto}
+.btn{display:inline-block;margin-top:20px;border:1px solid var(--ac2);padding:10px 36px;font-size:12px;font-weight:700;letter-spacing:.15em}
+.btn:hover{background:var(--ac2);color:var(--sf)}
+.gl{text-align:center}
+.gl p{margin-bottom:22px}
+footer{background:var(--sf);border-top:1px solid var(--ln);padding:40px 20px 32px;text-align:center}
+footer ul{display:flex;flex-wrap:wrap;gap:8px 22px;justify-content:center;margin-bottom:18px;font-size:12px}
+footer .logo{width:160px;height:40px;margin:16px auto}
+footer small{color:var(--sub);font-size:11px}
+#top{position:fixed;right:16px;bottom:calc(16px + env(safe-area-inset-bottom,0px));background:var(--ac);color:#fff;font-size:10px;font-weight:700;letter-spacing:.1em;padding:10px 12px;border-radius:6px;opacity:0;pointer-events:none;transition:.2s}
+#top.on{opacity:1;pointer-events:auto}
+@media(max-width:860px){
+#mb{display:block}
+nav{position:fixed;inset:calc(64px + env(safe-area-inset-top,0px)) 0 0 0;background:var(--sf);padding:16px 24px;overflow:auto;display:none}
+nav.open{display:block}
+nav>ul{flex-direction:column;align-items:stretch;gap:4px}
+nav li ul{position:static;display:block;border:0;padding:0 0 6px 14px}
+.row,.cards{grid-template-columns:1fr 1fr}
+.cards{grid-template-columns:1fr}
+.about .in{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="lg" viewBox="78 32 226 73"><g fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="butt" stroke-linejoin="miter"><g transform="translate(68,40)"><path d="M16 0V48"/><path d="M16 18L40 31"/></g><g transform="translate(111,52)"><path d="M12 3H38"/><path d="M5 15H40C40 31 32 41 18 47"/></g><g transform="translate(158,36)"><path d="M4 17H39V38Q39 45 32 45"/><path d="M22 2V22Q22 36 8 47"/></g><g transform="translate(203,58)"><path d="M10 11H38"/><path d="M24 11V37"/><path d="M5 37H43"/></g><g transform="translate(250,44)"><path d="M10 14H34"/><path d="M4 28H40"/><path d="M22 28Q22 43 8 48"/><path d="M38 1L41 10"/><path d="M45 -1L48 8"/></g></g></symbol></svg>
+<header>
+<a href="./" class="logo" aria-label="トラカエデ"><svg role="img"><use href="#lg"/></svg></a>
+<button id="mb" aria-label="menu">☰</button>
+<nav id="nav"><ul>
+<li><a href="./">HOME<small>ホーム</small></a></li>
+<li><a href="#anchor-lineup">LINEUP<small>ラインナップ</small></a>
+<ul><li><a href="./utau/">UTAU音源</a></li><li><a href="./ds/">DiffSinger</a></li></ul></li>
+<li><a href="./about/">WHAT IS …?<small>とは？</small></a>
+<ul><li><a href="./chronology/">年表</a></li><li><a href="./history/history-1.html">歴史</a></li></ul></li>
+<li><a href="./illust-logo/">ILLUSTRATION &amp; LOGO<small>イラスト・ロゴ 配布素材</small></a></li>
+<li><a href="./guideline/">GUIDELINES<small>ガイドライン</small></a>
+<ul><li><a href="./guideline/faq.html">規約に関するQ&amp;A</a></li><li><a href="./guideline/character.html">キャラクター利用規約</a></li><li><a href="./guideline/voice.html">音源利用規約</a></li><li><a href="./guideline/request.html">版権申請</a></li></ul></li>
+</ul></nav>
+</header>
+
+<main>
+<div class="hero">
+<div class="tag">OFFICIAL WEBSITE</div>
+<h1>SINGABLE<br>CHARACTER</h1>
+<p>UTAU / DiffSinger etc.</p>
+<div class="since"><span>SINCE 2026</span><span>AGE:16</span></div>
+<div class="row"><div class="ph im"><img src="https://amucn114514.github.io/hf/pics/1795253523282.png" alt="IMG 02" onerror="this.parentNode.textContent=this.alt"></div><div class="ph im"><img src="https://amucn114514.github.io/hf/pics/%E7%AB%8B%E7%BB%98%E7%BB%88.png" alt="IMG 03" onerror="this.parentNode.textContent=this.alt"></div></div>
+<div class="acct">
+<a href="https://x.com/">OFFICIAL X</a><a href="./">bilibili</a>
+</div>
+</div>
+
+<section id="anchor-lineup">
+<h2>LINEUP</h2>
+<p class="lead">SINGABLE CHARACTER OFFICIAL WEBSITE</p>
+<div class="cards">
+<a class="card" href="./utau/"><div class="ph im"><img src="https://amucn114514.github.io/hf/pics/1795253523282.png" alt="IMG 06" onerror="this.parentNode.textContent=this.alt"></div><div><b>01</b><span>UTAU VOICE ARCHIVE<br>UTAU音源</span></div></a>
+<a class="card" href="./ds/"><div class="ph im"><img src="https://amucn114514.github.io/hf/pics/%E7%AB%8B%E7%BB%98%E7%BB%88.png" alt="IMG 07" onerror="this.parentNode.textContent=this.alt"></div><div><b>02</b><span>DiffSinger<br>歌声合成モデル</span></div></a>
+</div>
+</section>
+
+<div class="about">
+<div class="in">
+<div>
+<h2>WHAT IS …?</h2>
+<div class="logo"><svg role="img" aria-label="トラカエデ"><use href="#lg"/></svg></div>
+<p>とは、有志がインターネット上で意見や素材を出し合って制作されたキャラクターです。<br>歌声として利用できる音声素材集を持ち、実際に歌うことができます。</p>
+<a class="btn" href="./about/">VIEW MORE</a>
+</div>
+</div>
+</div>
+
+<section class="gl">
+<h2>GUIDELINES</h2>
+<p class="lead">使用いただくにあたり、守っていただきたいことを記載しています。</p>
+<a class="btn" href="./guideline/">VIEW MORE</a>
+</section>
+</main>
+
+<footer>
+<ul>
+<li><a href="./">HOME</a></li><li><a href="#anchor-lineup">LINEUP</a></li><li><a href="./about/">ABOUT</a></li><li><a href="./illust-logo/">ILLUSTRATION &amp; LOGO</a></li><li><a href="./guideline/">GUIDELINES</a></li>
+</ul>
+<ul>
+<li><a href="https://x.com/">OFFICIAL X</a></li><li><a href="./">bilibili</a></li><li><a href="./privacypolicy/">プライバシーポリシー</a></li>
+</ul>
+<div class="logo"><svg role="img" aria-label="トラカエデ"><use href="#lg"/></svg></div>
+<small>© 2026 CIRCLE. All rights reserved.</small>
+</footer>
+<a id="top" href="#">PAGE TOP</a>
+
+<script>
+var n=document.getElementById('nav'),t=document.getElementById('top');
+document.getElementById('mb').onclick=function(){n.classList.toggle('open')};
+n.addEventListener('click',function(e){if(e.target.tagName==='A')n.classList.remove('open')});
+addEventListener('scroll',function(){t.classList.toggle('on',scrollY>400)});
+</script>
+</body>
+</html>
