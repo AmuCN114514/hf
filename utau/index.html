@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>UTAU音源 | OFFICIAL WEBSITE</title>
+<style>
+:root{--bg:#f4f4f4;--sf:#fff;--tx:#222;--sub:#666;--ac:#888;--ac2:#555;--ln:#d6d6d6;--ph:#e4e4e4;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#1b1b1b;--sf:#242424;--tx:#eee;--sub:#aaa;--ac:#999;--ac2:#ccc;--ln:#3a3a3a;--ph:#333}}
+:root[data-theme="dark"]{--bg:#1b1b1b;--sf:#242424;--tx:#eee;--sub:#aaa;--ac:#999;--ac2:#ccc;--ln:#3a3a3a;--ph:#333}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:calc(64px + env(safe-area-inset-top,0px))}
+body{background:var(--bg);color:var(--tx);font:15px/1.8 "Hiragino Sans","Noto Sans JP","Microsoft YaHei",sans-serif}
+a{color:inherit;text-decoration:none}ul,ol{list-style:none}
+.ph{background:var(--ph);border:1px dashed var(--ac);color:var(--sub);display:flex;align-items:center;justify-content:center;font:600 13px/1 monospace;letter-spacing:.1em;width:100%}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--sf);border-bottom:1px solid var(--ln);display:flex;align-items:center;justify-content:space-between;padding:0 20px;height:64px}
+header .logo{width:120px;height:32px;display:block}
+.logo{color:var(--tx)}
+.logo svg{width:100%;height:100%;display:block}
+nav>ul{display:flex;gap:22px;align-items:center}
+nav li{position:relative}
+nav a{font-size:13px;font-weight:600;display:block;padding:8px 0}
+nav a small{display:block;font-size:10px;color:var(--sub);font-weight:400}
+nav a:hover{color:var(--ac)}
+nav li ul{position:absolute;left:-12px;top:100%;background:var(--sf);border:1px solid var(--ln);min-width:200px;padding:8px 14px;display:none}
+nav li:hover>ul,nav li:focus-within>ul{display:block}
+nav li ul a{font-weight:400;padding:5px 0}
+#mb{display:none;background:none;border:1px solid var(--ln);color:var(--tx);width:40px;height:40px;font-size:18px;border-radius:6px}
+.mv{max-width:1100px;margin:auto;padding:56px 20px;display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center}
+.tag{color:var(--ac);letter-spacing:.3em;font-size:12px;font-weight:700}
+.mv h1{font-size:clamp(30px,6vw,58px);line-height:1.1;letter-spacing:.04em;color:var(--ac2);margin:10px 0}
+.sub{color:var(--sub);margin-bottom:22px}
+.acct{display:flex;flex-wrap:wrap;gap:10px}
+.btn{display:inline-block;border:1px solid var(--ac2);padding:10px 24px;font-size:12px;font-weight:700;letter-spacing:.1em}
+.btn:hover{background:var(--ac2);color:var(--sf)}
+.note{color:var(--sub);font-size:12px;margin-top:14px}
+.mvi img{width:100%;height:auto;display:block}
+.mvi .ph{aspect-ratio:3/4}
+section{max-width:1100px;margin:auto;padding:48px 20px}
+h2{font-size:28px;letter-spacing:.1em;color:var(--ac2);margin-bottom:6px}
+.lead{color:var(--sub);font-size:13px;margin-bottom:24px}
+details{background:var(--sf);border:1px solid var(--ln);margin-bottom:12px}
+summary{cursor:pointer;list-style:none;padding:16px 18px;display:flex;gap:16px;align-items:center;font-weight:700}
+summary::-webkit-details-marker{display:none}
+summary b{color:var(--ac);font-size:22px}
+summary small{display:block;color:var(--sub);font-size:11px;font-weight:400}
+summary::after{content:"+";margin-left:auto;font-size:20px;color:var(--ac)}
+details[open]>summary::after{content:"−"}
+summary:focus-visible,.btn:focus-visible,nav a:focus-visible{outline:2px solid var(--ac2);outline-offset:2px}
+.bd{padding:4px 18px 20px;border-top:1px solid var(--ln)}
+.bd p{margin:14px 0}
+.dls{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:14px}
+.bd h4{font-size:13px;letter-spacing:.1em;color:var(--ac2);margin:18px 0 8px}
+.st{counter-reset:s}
+.st li{counter-increment:s;margin-bottom:16px}
+.st li::before{content:counter(s,decimal-leading-zero);color:var(--ac);font-weight:700;margin-right:10px}
+.st .ph{aspect-ratio:16/9;max-width:480px;margin-top:8px}
+.gl{text-align:center}
+.gl p{margin-bottom:22px}
+footer{background:var(--sf);border-top:1px solid var(--ln);padding:40px 20px 32px;text-align:center}
+footer ul{display:flex;flex-wrap:wrap;gap:8px 22px;justify-content:center;margin-bottom:18px;font-size:12px}
+footer .logo{width:160px;height:40px;margin:16px auto}
+footer small{color:var(--sub);font-size:11px}
+#top{position:fixed;right:16px;bottom:calc(16px + env(safe-area-inset-bottom,0px));background:var(--ac);color:#fff;font-size:10px;font-weight:700;letter-spacing:.1em;padding:10px 12px;border-radius:6px;opacity:0;pointer-events:none;transition:.2s}
+#top.on{opacity:1;pointer-events:auto}
+@media(max-width:860px){
+#mb{display:block}
+nav{position:fixed;inset:calc(64px + env(safe-area-inset-top,0px)) 0 0 0;background:var(--sf);padding:16px 24px;overflow:auto;display:none}
+nav.open{display:block}
+nav>ul{flex-direction:column;align-items:stretch;gap:4px}
+nav li ul{position:static;display:block;border:0;padding:0 0 6px 14px}
+.mv{grid-template-columns:1fr}
+.mvi{order:-1;max-width:420px;margin:auto}}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="lg" viewBox="78 32 226 73"><g fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="butt" stroke-linejoin="miter"><g transform="translate(68,40)"><path d="M16 0V48"/><path d="M16 18L40 31"/></g><g transform="translate(111,52)"><path d="M12 3H38"/><path d="M5 15H40C40 31 32 41 18 47"/></g><g transform="translate(158,36)"><path d="M4 17H39V38Q39 45 32 45"/><path d="M22 2V22Q22 36 8 47"/></g><g transform="translate(203,58)"><path d="M10 11H38"/><path d="M24 11V37"/><path d="M5 37H43"/></g><g transform="translate(250,44)"><path d="M10 14H34"/><path d="M4 28H40"/><path d="M22 28Q22 43 8 48"/><path d="M38 1L41 10"/><path d="M45 -1L48 8"/></g></g></symbol></svg>
+<header>
+<a href="../" class="logo" aria-label="トラカエデ"><svg role="img"><use href="#lg"/></svg></a>
+<button id="mb" aria-label="menu">☰</button>
+<nav id="nav"><ul>
+<li><a href="../">HOME<small>ホーム</small></a></li>
+<li><a href="../#anchor-lineup">LINEUP<small>ラインナップ</small></a>
+<ul><li><a href="../utau/">UTAU音源</a></li><li><a href="../ds/">DiffSinger</a></li></ul></li>
+<li><a href="../about/">WHAT IS …?<small>とは？</small></a>
+<ul><li><a href="../chronology/">年表</a></li><li><a href="../history/history-1.html">歴史</a></li></ul></li>
+<li><a href="../illust-logo/">ILLUSTRATION &amp; LOGO<small>イラスト・ロゴ 配布素材</small></a></li>
+<li><a href="../guideline/">GUIDELINES<small>ガイドライン</small></a>
+<ul><li><a href="../guideline/faq.html">規約に関するQ&amp;A</a></li><li><a href="../guideline/character.html">キャラクター利用規約</a></li><li><a href="../guideline/voice.html">音源利用規約</a></li><li><a href="../guideline/request.html">版権申請</a></li></ul></li>
+</ul></nav>
+</header>
+
+<main>
+<div class="mv">
+<div>
+<div class="tag">OFFICIAL WEBSITE</div>
+<h1>UTAU<br>VOICE ARCHIVE</h1>
+<p class="sub">UTAU音源</p>
+<div class="acct"><a class="btn" href="https://utau2008.xrea.jp/" target="_blank" rel="noopener">UTAUをダウンロード</a><a class="btn" href="https://github.com/stakira/OpenUtau/wiki/%E3%82%B9%E3%82%BF%E3%83%BC%E3%82%BF%E3%83%BC%E3%82%AC%E3%82%A4%E3%83%89-(%E6%97%A5%E6%9C%AC%E8%AA%9E)" target="_blank" rel="noopener">OpenUTAUをダウンロード</a></div>
+<p class="note">当サイトではUTAU、OpenUTAUのソフトウェア自体の開発・サポートは行っておりません。</p>
+</div>
+<div class="mvi"><img src="https://amucn114514.github.io/hf/pics/1795253523282.png" alt="" data-ph="IMG 01"></div>
+</div>
+
+<section>
+<h2>VOICE BANK DATA</h2>
+<p class="lead">インストール後、音源が認識されない場合は、UTAUの「ツール」→「原音設定」→「ファイル」→「リロード」をお試しください。</p>
+<div id="libs"></div>
+</section>
+
+<section class="gl">
+<h2>GUIDELINES</h2>
+<p class="lead">使用いただくにあたり、守っていただきたいことを記載しています。</p>
+<a class="btn" href="../guideline/">VIEW MORE</a>
+</section>
+</main>
+
+<footer>
+<ul>
+<li><a href="../">HOME</a></li><li><a href="../#anchor-lineup">LINEUP</a></li><li><a href="../about/">ABOUT</a></li><li><a href="../illust-logo/">ILLUSTRATION &amp; LOGO</a></li><li><a href="../guideline/">GUIDELINES</a></li>
+</ul>
+<ul>
+<li><a href="https://x.com/">OFFICIAL X</a></li><li><a href="../">bilibili</a></li><li><a href="../privacypolicy/">プライバシーポリシー</a></li>
+</ul>
+<div class="logo"><svg role="img" aria-label="トラカエデ"><use href="#lg"/></svg></div>
+<small>© 2026 CIRCLE. All rights reserved.</small>
+</footer>
+<a id="top" href="#">PAGE TOP</a>
+
+<script>
+/* 编辑提示：每个条目 t=标题 en=英文名 d=说明 dl=[按钮文字,链接] st=步骤 sfx=SurffixBroker 后缀；下载链接目前为 # 占位 */
+var D=[{"t": "OpenUTAU用日本語統合ライブラリー", "en": "OpenUTAU Japanese library set", "d": "OpenUTAU用に通常音源と各種音源をまとめたライブラリーです。OpenUTAUで使う場合はこちらがおすすめです。", "dl": [["統合ライブラリーをダウンロード"]], "st": ["「ツール」から「シンガーをインストール」を選び、ダウンロードしたzipを選択します。", "トラック上の「シンガーを選択」をクリックします。", "一覧からインストールしたシンガーを選択します。", "シンガーが使えるようになりました！"]}, {"t": "通常音源 ライブラリー", "en": "Standard voice", "d": "最もスタンダードな音源です。単独音だけでも歌えますが、単独音＋連続音ならさらになめらかに歌います。", "dl": [["通常音源 単独音をダウンロード"], ["通常音源 単独音+連続音をダウンロード"]], "st": ["UTAUを起動し、zipを解凍せずにエディタ画面へドラッグ＆ドロップします。", "「インストールします」→「OK」、「上書きしますか？」→「はい」を選ぶと自動でインストールが始まります。", "「原音のプロフィール」が表示されたらインストール完了です。", "「メニュー」＞「プロジェクト」＞「プロジェクトのプロパティ」で音声ライブラリーを選択します。"]}, {"t": "囁き音源 ライブラリー", "en": "Whisper voice", "d": "歌唱表現を拡張する囁き音源（単独音）です。専用の原音設定とエイリアス【囁】が入っており、インストールするだけで通常音源と併用できます。", "dl": [["囁き音源 単独音をダウンロード"], ["囁き音源 単独音+連続音をダウンロード"]], "sfx": "囁"}, {"t": "エクストラライブラリー", "en": "Extra voice", "d": "巻き舌・息・語尾息・無声音などの特殊な音源です。単体では歌わせられないため、通常音源とあわせてご利用ください。", "dl": [["エクストラライブラリーをダウンロード"]], "st": ["休符の上で Shift＋右クリックし、直前の音の母音に合わせて語尾息を選びます。", "クロスフェードを調整します。", "巻き舌は、ら行の音の前に「巻」を追加して使います。"]}, {"t": "力み音源 ライブラリー", "en": "Strain voice", "d": "歌唱を拡張する力み音源（単独音）です。専用の原音設定とエイリアス【力】が入っており、インストールするだけで通常音源と併用できます。UTAUの操作に慣れている方におすすめです。", "dl": [["力み音源をダウンロード"]], "sfx": "力"}, {"t": "叫び音源 ライブラリー", "en": "Shout voice", "d": "歌唱を拡張する叫び音源（連続音）です。専用の原音設定とエイリアス【↑】が入っており、インストールするだけで通常音源と併用できます。", "dl": [["叫び音源をダウンロード"]], "sfx": "↑"}, {"t": "弱音源 ライブラリー", "en": "Weak voice", "d": "通常音源と囁き音源を合成した弱音源（連続音）です。専用の原音設定とエイリアス【弱】が入っており、インストールするだけで通常音源と併用できます。合成音のため、ロボット的な響きが含まれることがあります。", "dl": [["弱音源をダウンロード"]], "sfx": "弱"}, {"t": "エッジ音源 ライブラリー", "en": "Edge voice", "d": "表現力を拡張するエッジ音源（単独音＋母音のみ連続音）です。専用の原音設定とエイリアス【'】が入っており、インストールするだけで通常音源と併用できます。語尾息吸の音源も同梱されています。", "dl": [["エッジ音源をダウンロード"]], "sfx": "'"}, {"t": "滑らか音源 ライブラリー", "en": "Smooth voice", "d": "滑舌をあえてぼかし、伸びやかな歌声を表現する滑らか音源（連続音）です。専用の原音設定とエイリアス【滑】が入っており、インストールするだけで通常音源と併用できます。", "dl": [["滑らか音源をダウンロード"]], "sfx": "滑"}, {"t": "英語音源 ライブラリー", "en": "English voice", "d": "CVVC収録の英語音源です。英語をしっかりした発音で歌わせたい方におすすめです。プラグインを使うと簡単に歌わせられます（外部サイトへ移動します）。", "dl": [["プラグインをダウンロード"], ["英語音源をダウンロード"]]}, {"t": "過去の音源ライブラリー", "en": "Past voice library", "d": "今後の更新予定のない過去のライブラリーです。公開当時のままで、古いものほど下にあります。", "dl": [["旧版ライブラリー 01"], ["旧版ライブラリー 02"], ["旧版ライブラリー 03"]]}];
+var L=document.getElementById('libs'),c=1;
+D.forEach(function(l,i){
+var s=l.sfx?['「ツール」＞「読み込みツール」＞「SurffixBroker」を開き、接尾辞「'+l.sfx+'」を登録します。','対象の歌詞を選択し、SurffixBrokerで「'+l.sfx+'」を選んでOKを押します。']:(l.st||[]);
+var h='<details'+(i?'':' open')+'><summary><b>'+('0'+(i+1)).slice(-2)+'</b><span>'+l.t+'<small>'+l.en+'</small></span></summary><div class="bd"><p>'+l.d+'</p><div class="dls">'+(l.dl||[]).map(function(x){return '<a class="btn" href="'+(x[1]||'#')+'">'+x[0]+'</a>'}).join('')+'</div>';
+if(s.length){h+='<h4>使い方</h4><ol class="st">'+s.map(function(x){c++;return '<li>'+x+'<div class="ph">IMG '+('0'+c).slice(-2)+'</div></li>'}).join('')+'</ol>'}
+L.insertAdjacentHTML('beforeend',h+'</div></details>')});
+document.querySelectorAll('img[data-ph]').forEach(function(i){function f(){var d=document.createElement('div');d.className='ph';d.textContent=i.dataset.ph;i.replaceWith(d)}if(i.complete&&!i.naturalWidth)f();else i.addEventListener('error',f)});
+var n=document.getElementById('nav'),t=document.getElementById('top');
+document.getElementById('mb').onclick=function(){n.classList.toggle('open')};
+n.addEventListener('click',function(e){if(e.target.tagName==='A')n.classList.remove('open')});
+addEventListener('scroll',function(){t.classList.toggle('on',scrollY>400)});
+</script>
+</body>
+</html>
